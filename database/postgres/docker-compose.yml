@@ -1,0 +1,13 @@
+version: '2.15.1'
+
+services:
+  postgres:
+    container_name: "database"
+    build:
+      dockerfile: dockerfile_postgres
+      context: .
+      target: base
+    env_file:
+      - postgres.env
+    ports:
+      - '5432:5432'

@@ -1,0 +1,10 @@
+SELECT setval('availability_zones_a_zone_id_seq', (select max(az.a_zone_id) from availability_zones az), true);
+SELECT setval('clicks_stats_record_id_seq', (select max(cs.record_id) from clicks_stats cs), true);
+SELECT setval('link_routes_route_id_seq', (select max(lr.route_id) from link_routes lr), true);
+SELECT setval('links_link_id_seq', (select max(l.link_id) from links l), true);
+SELECT setval('platforms_platform_id_seq', (select max(p.platform_id) from platforms p), true);
+SELECT setval('project_link_relations_relation_id_seq', (select max(plr.relation_id) from project_link_relations plr), true);
+SELECT setval('projects_project_id_seq', (select max(p.project_id) from projects p), true);
+SELECT setval('user_link_relations_relation_id_seq', (select max(ulr.relation_id) from user_link_relations ulr), true);
+SELECT setval('user_project_relations_relation_id_seq', (select max(upr.relation_id) from user_project_relations upr), true);
+SELECT setval('users_user_id_seq', (select max(u.user_id) from users u), true);
