@@ -32,7 +32,7 @@ type LinkService interface { // TODO add link users, add project users, generate
 
 type RoutingService interface { // todo get route link
 	CreateRoute(route *models.Route) error
-	GetLinkRoutes(LinkID models.UUID) ([]*models.Route, error)
+	GetLinkRoutes(LinkID models.UUID) ([]*models.Route, error) // TODO add error if duplicate rule, and if all general
 	GetRouteInfo(ID models.UUID) (*models.Route, error)
 	UpdateRouteInfo(ID models.UUID, route *models.UpdateRoute) error
 }

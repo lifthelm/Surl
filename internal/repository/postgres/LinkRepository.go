@@ -107,7 +107,7 @@ func (l LinkRepository) GetUserLinks(userID models.UUID) ([]*models.Link, error)
 		Where(repoModels.UserLinkRelation{UserID: repoUserID})
 	res := l.db.Table("links l").
 		Select("l.*").
-		Joins("left join (?) ulr on ulr.link_id = l.link_id", queryProjectLinksIDS).
+		Joins("inner join (?) ulr on ulr.link_id = l.link_id", queryProjectLinksIDS).
 		Find(&repoLinks)
 	if res.Error != nil {
 		return nil, fmt.Errorf("cant request link project relation: %w", res.Error)

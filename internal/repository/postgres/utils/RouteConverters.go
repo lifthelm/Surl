@@ -42,6 +42,8 @@ func PlatformRepoToLogic(platform uint) (models.PlatformType, error) {
 		return models.PlatformIOS, nil
 	case PlatformAndroid:
 		return models.PlatformAndroid, nil
+	case PlatformMacOS, PlatformWindows: // TODO expand logic
+		return models.PlatformGeneral, nil
 	default:
 		return models.PlatformGeneral, fmt.Errorf("cant convert platform to logic")
 	}
@@ -76,6 +78,8 @@ func AZoneRepoToLogic(zone uint) (models.GeoType, error) {
 		return models.GeoEurope, nil
 	case AZoneAsia:
 		return models.GeoAsia, nil
+	case AZoneAustralia: // TODO expand logic
+		return models.GeoGeneral, nil
 	default:
 		return models.GeoGeneral, fmt.Errorf("cant convert azone to logic")
 	}

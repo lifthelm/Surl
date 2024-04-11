@@ -56,7 +56,9 @@ func (r RoutingRepository) GetLinkRoutes(linkID models.UUID) ([]*models.Route, e
 		return nil, fmt.Errorf("cant convert link id to repo: %w", err)
 	}
 	var repoRoutes []repoModels.LinkRoute
-	res := r.db.Model(repoModels.LinkRoute{LinkID: repoLinkID}).Find(&repoRoutes)
+	res := r.db.Table("link_routes").
+		Where(repoModels.LinkRoute{LinkID: repoLinkID}).
+		Find(&repoRoutes)
 	if res.Error != nil {
 		return nil, fmt.Errorf("cant request link route: %w", res.Error)
 	}
